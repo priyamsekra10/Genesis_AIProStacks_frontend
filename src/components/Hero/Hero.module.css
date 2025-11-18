@@ -1,0 +1,188 @@
+.root {
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 80vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    color: var(--standard-white);
+}
+
+.mobileImageContainer {
+  display: none; /* Hide mobile images by default */
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--standard-white);
+    max-width: 500px;
+    gap: 40px;
+}
+
+.title {
+    font-size: 72px;
+    line-height: 86px;
+    font-weight: normal;
+    text-align: center;
+    white-space: pre-wrap;
+}
+
+
+.titleContainer {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .titleContainer img {
+    opacity: 0; /* Initially hide the text */
+    transform: translateX(-100%); /* Start from outside the left edge */
+    transition: opacity 2s ease, transform 2s ease;
+  }
+  
+  .visible img {
+    opacity: 1; /* Make the text visible */
+    transform: translateX(0); /* Slide from left to right */
+  }
+  
+  
+
+.subtitle {
+    
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+}
+
+.ctaButton {
+    width: 180px;
+    
+}
+
+.ctaLink {
+    
+    text-transform: uppercase;
+    color: var(--standard-white);
+    border-bottom: 1px solid var(--standard-white);
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.header {
+    color: var(--standard-white);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    @keyframes slideInFromLeft {
+        from {
+          transform: translateX(-100%); /* Start from off-screen to the left */
+          opacity: 0; /* Start from fully transparent */
+        }
+        to {
+          transform: translateX(0); /* End at its natural position */
+          opacity: 1; /* End fully opaque */
+        }
+      }
+      
+    .root {
+        min-height: 50vh;
+        background-image: none !important;
+    }
+    .mobileImageContainer {
+        position: relative; /* Keep this container relative */
+        display: block; /* Ensure it behaves like a block container */
+        width: 100%; /* Keep your existing settings */
+        overflow: hidden; /* Hide any overflowing content */
+    }
+
+    
+    .titleContainer1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%; /* Make the image fill the container */
+        height: 100%; /* Adjust based on your design needs */
+        z-index: 1; /* Ensure this is behind the other images */
+    }
+
+
+
+    .titleContainer3 {
+        animation-name: slideInFromLeft; /* Reference our keyframe animation */
+        animation-duration: 1s; /* Control how long the animation takes, e.g., 1 second */
+        animation-fill-mode: forwards; /* Ensures the element remains in the final state of the animation */
+        animation-delay: 0.5s; /* Delays start of animation, adjust as needed */
+        width: 100%; /* Ensure full container width */
+        display: block; /* Ensure block level display */
+    }
+    .titleContainer3.animate {
+        animation-name: slideInFromLeft; /* Apply the animation when the class is active */
+    }
+    
+    
+    
+    .titleContainer1 img {
+        width: 100%; /* Ensure the image covers the entire container */
+        height: auto; /* Keep the aspect ratio of the image */
+    }
+    
+    /* These remain as block elements and will naturally stack */
+    .titleContainer2, .titleContainer3 {
+        position: relative; /* Normal document flow */
+        z-index: 1; /* Above the absolute background image */
+        width: 100%; /* Match width to the container */
+    }
+    
+    .titleContainer2 img, .titleContainer3 img {
+        width: 100%; /* Full container width */
+        display: block; /* Remove any default inline properties */
+        height: auto; /* Maintain aspect ratio */
+    }
+    
+    .titleContainer1{
+        padding-bottom: 40px;
+    }
+    
+    .titleContainer1 img, .titleContainer2 img, .titleContainer3 img {
+        width: 100%; /* Ensure the images cover the entire container */
+        height: auto; /* Keep the aspect ratio of the images */
+    }    
+      .mobileBannerImg {
+        width: 33.33%; /* Adjust as needed */
+        object-fit: cover;
+      }
+
+      .titleContainer{
+        display: none;
+      }
+
+    .title {
+        font-size: 42px;
+        line-height: 50px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
+
+@media (max-width: 500px) {
+    .content {
+    }
+}

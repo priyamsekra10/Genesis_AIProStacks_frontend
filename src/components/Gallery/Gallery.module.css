@@ -1,0 +1,45 @@
+.root {
+
+}
+
+.cardGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+}
+
+.imageContainer {
+    width: 100%;
+    height: 520px;
+}
+
+.imageContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mobileSlider {
+    display: none;
+}
+.videoContainer {
+    width: 100%;
+    height: 520px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .videoContainer video {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+@media (max-width: 768px) {
+  /* Add some spacing in between grid */
+  .cardGrid {
+    gap: 2px;
+  }
+}
