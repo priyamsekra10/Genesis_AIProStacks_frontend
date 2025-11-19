@@ -24,8 +24,6 @@ import { Helmet } from 'react-helmet';
 
 import {
   RTVIClientAudio,
-  RTVIClientVideo,
-  useRTVIClientTransportState,
 } from '@pipecat-ai/client-react';
 import { RTVIProvider } from '../../product-components/providers/RTVIProvider';
 import { ConnectButton } from '../../product-components/components/ConnectButton';
@@ -33,8 +31,8 @@ import { ConnectButton } from '../../product-components/components/ConnectButton
 
 import AddItemNotificationContext from '../../context/AddItemNotificationProvider';
 const ProductPage = (props) => {
-
-
+  // SSR guard
+  const isBrowser = typeof window !== 'undefined';
 
   const { state } = props.location;
   const productDetails = state && state.productDetails;
@@ -344,8 +342,12 @@ const ProductPage = (props) => {
                 <Icon symbol={'bag'}></Icon>
                 </div>
 
-                <ConnectButton productId="iphone" agentId="YOUR_AGENT_ID" />
-            <RTVIClientAudio />
+                {isBrowser && (
+                  <>
+                    <ConnectButton productId="iphone" agentId="YOUR_AGENT_ID" />
+                    <RTVIClientAudio />
+                  </>
+                )}
                 <br />
              
                   

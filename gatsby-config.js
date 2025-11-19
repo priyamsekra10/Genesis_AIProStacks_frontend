@@ -3,6 +3,11 @@ module.exports = {
     title: `Gatsby Sydney Ecommerce Theme`,
     siteUrl: `https://jamm.matter.design`,
   },
+  flags: {
+    DEV_SSR: false,
+    FAST_DEV: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+  },
   plugins: [
     'gatsby-plugin-postcss',
     {

@@ -153,8 +153,10 @@ const applyCoupon = async () => {
         },
       };
 
-      var rzp1 = new window.Razorpay(options);
-      rzp1.open();
+      if (typeof window !== 'undefined' && window.Razorpay) {
+        var rzp1 = new window.Razorpay(options);
+        rzp1.open();
+      }
     } catch (error) {
       console.error('Error in paymentHandler:', error);
       setIsLoading(false);
@@ -162,6 +164,9 @@ const applyCoupon = async () => {
   };
 
   useEffect(() => {
+    // Only load Razorpay on client-side
+    if (typeof window === 'undefined') return;
+    
     const loadRazorpayScript = async () => {
       try {
         const script = document.createElement('script');
