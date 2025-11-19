@@ -3,7 +3,7 @@ import {
   useRTVIClient,
   useRTVIClientTransportState,
 } from '@pipecat-ai/client-react';
-import { RTVIProvider } from '../providers/RTVIProvider';
+import { RTVIProvider } from '../_providers/RTVIProvider';
 
 interface ConnectButtonProps {
   productId: string;
