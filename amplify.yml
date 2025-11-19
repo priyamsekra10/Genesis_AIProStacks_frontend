@@ -3,7 +3,12 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm ci --legacy-peer-deps
+        - nvm install 18
+        - nvm use 18
+        - node --version
+        - npm --version
+        - rm -rf node_modules package-lock.json
+        - npm install --legacy-peer-deps
     build:
       commands:
         - npm run build
@@ -17,3 +22,4 @@ frontend:
 env:
   variables:
     CYPRESS_INSTALL_BINARY: 0
+    NODE_VERSION: 18
