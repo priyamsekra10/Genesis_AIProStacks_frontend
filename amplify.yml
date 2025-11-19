@@ -23,3 +23,5 @@ env:
   variables:
     CYPRESS_INSTALL_BINARY: 0
     NODE_VERSION: 18
+    NODE_OPTIONS: --max-old-space-size=4096
+    GATSBY_CPU_COUNT: 2

@@ -6,16 +6,25 @@ exports.onCreateWebpackConfig = (helper) => {
   actions.setWebpackConfig({
     resolve: {
       fallback: {
-        http: false,
-        https: false,
-        zlib: false,
-        stream: false,
-        util: false,
-        buffer: false,
-        assert: false,
-        url: false,
+        http: require.resolve('stream-http'),
+        https: require.resolve('https-browserify'),
+        zlib: require.resolve('browserify-zlib'),
+        stream: require.resolve('stream-browserify'),
+        util: require.resolve('util/'),
+        buffer: require.resolve('buffer/'),
+        assert: require.resolve('assert/'),
+        url: require.resolve('url/'),
+      },
+      alias: {
+        'node-fetch': require.resolve('node-fetch'),
       },
     },
+    plugins: [
+      new (require('webpack').ProvidePlugin)({
+        Buffer: ['buffer', 'Buffer'],
+        process: 'process/browser',
+      }),
+    ],
   });
 
   if (stage === 'develop' || stage === 'build-javascript') {
