@@ -10,7 +10,7 @@ import ProductCollectionGrid from '../components/ProductCollectionGrid';
 import ProductCardGrid from '../components/ProductCardGrid';
 import Quote from '../components/Quote';
 import Title from '../components/Title';
-import { RTVIProvider } from './product/_providers/RTVIProvider';
+import { RTVIProvider } from '../product-components/providers/RTVIProvider';
 
 import { generateMockBlogData, generateMockProductData } from '../helpers/mock';
 

@@ -27,8 +27,8 @@ import {
   RTVIClientVideo,
   useRTVIClientTransportState,
 } from '@pipecat-ai/client-react';
-import { RTVIProvider } from './_providers/RTVIProvider';
-import { ConnectButton } from './_components/ConnectButton';
+import { RTVIProvider } from '../../product-components/providers/RTVIProvider';
+import { ConnectButton } from '../../product-components/components/ConnectButton';
 
 
 import AddItemNotificationContext from '../../context/AddItemNotificationProvider';
